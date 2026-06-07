@@ -1,0 +1,482 @@
+::-webkit-scrollbar {
+  overflow: hidden;
+}
+html, body {
+  overflow: hidden;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f080;
+}
+.openInterface {
+  animation: openInterface 0.5s ease-out forwards;
+}
+.closeInterface {
+  animation: closeInterface 0.5s ease-out forwards;
+}
+.openTextPause {
+  animation: openTextPause 0.5s ease-out forwards;
+}
+.closeTextPause {
+  animation: closeTextPause 0.5s ease-out forwards;
+}
+#interface {
+  position: fixed;
+  border: 1px solid black;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  overflow: hidden;
+  animation: openInterface 0.5s ease-out forwards;
+}
+#interfaceShop {
+  display: none;
+  background-color: red;
+  position: fixed;
+  border: 1px solid black;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 5px;
+}
+#item {
+    display:flex;
+    transition: transform 0.1s linear;
+}
+#sliderShop {
+    position: absolute;
+    bottom: 0%;
+}
+.item1, .item2, .item3, .item4, .item5, .item6 {
+    min-width: 400px;      /* même largeur que wrapper */
+    height: 200px;
+    background: lightblue;
+    border-right: 2px solid #fff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+#interfaceStat {
+  display: none;
+  background-color: green;
+  position: fixed;
+  border: 1px solid black;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 5px;
+}
+
+#sliderHp{
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 25.5%;
+  top: 50%;
+  pointer-events: none;
+}
+#sliderAttack{
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 50%;
+  right: 13.5%;
+  pointer-events: none;
+}
+#sliderSpeed {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  pointer-events: none;
+}
+#hp, #attack, #speed {
+  user-select: none;
+}
+#exp {
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 11;
+  width: 10vw;
+  padding: 4px;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  transform: translate(-50%, -100%);
+  user-select: none;
+}
+#lvl {
+  position: relative;
+  text-align: center;
+  color: rgb(4, 4, 5);
+  background: none;
+  z-index: 10;
+  font-size: 3Vh;
+  cursor: default;
+  user-select: none;
+}
+#progress-container {
+  position: relative;
+  bottom: 31vh;
+  right: 23vw;
+  width: 20vw;
+  height: 3vh;
+  background: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 8;
+  user-select: none;
+  transition: all 0.4s ease;
+} 
+#progress-bar {
+  position: relative;
+  height: 1000000%;
+  transform: translateY( -90%);
+  background: linear-gradient(90deg, #5583ff, #0044ff);
+  transition: width 0.4s ease;
+  width: 0%;
+  border-radius: 5px;
+  z-index: 9;
+}
+#menuStat {
+  position: relative;
+  top: 15%;
+  left: 2.75%;
+  text-align: center;
+  align-items: center;
+  background: #0044ff;
+  width: 28.25%;
+  height: 80%;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 5vh;
+}
+#interfaceAvatar {
+  display: none;
+  background-color: yellow;
+  position: fixed;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 70vw;
+  height: 70vh;
+}
+
+.shopClose, .statClose, .avatarClose {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+#menu {
+  margin: 5% 0 0 0;
+  display: flex;
+  position: absolute;
+  width: 20%;
+  height: 32.5%;
+  top: 25%;
+  left: 2%;
+  list-style-type: none;
+  transition: all 0.5s ease;
+  user-select: none;
+}
+#shop {
+  position: relative;
+  cursor: pointer;
+  width: 130%;
+  height: 35%;
+  margin: 0 0 15% 0;
+  border-radius: 7.5px;
+}
+#stat {
+  position: relative;
+  cursor: pointer;
+  width: 130%;
+  height: 35%;
+  margin: 0 0 15% 0;
+  border-radius: 7.5px;
+}
+#avatar {
+  position: relative;
+  width: 130%;
+  height: 35%;
+  border-radius: 7.5px;
+  cursor: pointer;
+}
+#play {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 60%;
+  right: 50%;
+  transform: translateX(50%);
+  width: 25%;
+  height: 12.5%;
+  background-color: yellow;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  user-select: none;
+  cursor: pointer;
+  font-size: 150%;
+  border: 1px solid black;
+}
+#play:hover {
+  background-color: orange;
+  border: 1px solid yellow;
+  color: yellow;
+}
+#pause {
+  display: none;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  border: none;
+  color: red;
+  pointer-events: auto;
+  user-select: none;
+  transform: translateY(-75%);
+}
+.monster-model {
+  position: fixed;
+  background: red;
+  width: 30px;
+  height : 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: none;
+  justify-content: center;
+  align-items: top;
+}
+.monsterEyeLeft-model{
+  width: 10px;
+  height: 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin: 2px 0 0 1.5px;
+  overflow: hidden;
+}
+.monsterPupilLeft-model{
+  position: relative;
+  transform: translate(-6.5px, 7.5px);
+  width: 2px;
+  height: 2px;
+  background: black;
+  border-radius: 100%;
+}
+.monsterEyeRight-model{
+  width: 10px;
+  height: 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100%;
+  margin: 2px 0 0 1.5px;
+  overflow: hidden;
+}
+.monsterPupilRight-model{
+  transform: translate(-6.5px, 7.5px);
+  position: relative;
+  width: 2px;
+  height: 2px;
+  background: black;
+  border-radius: 100%;
+}
+.monsterEyeLeft-model::before, .monsterEyeRight-model::before {
+  content: "";
+  display: block;
+  background: yellow;
+  height: 0%;
+  border-radius: 100%;
+  animation: openEye 8s ease-in-out 3s forwards infinite;
+}
+#playerBody{
+  display: none;
+  position: fixed;
+  background: red;
+  border-radius: 100%;
+  width: 65px;
+  height : 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+#playerEyeLeft, #playerEyeRight {
+  position: relative;
+  display: inline-block;
+  background: none;
+  border: 1px solid black;
+  background: rgb(255, 51, 51);
+  border-radius: 100%;
+  left: 15%;
+  transform: translateX(-24%);
+  top: 15%;
+  width: 25px;
+  height: 25px;
+  z-index: 2;
+  overflow: hidden;
+}
+#playerEyeRight::before, #playerEyeLeft::before {
+  content: "";
+  display: block;
+  background: yellow;
+  height: 0%;
+  border-radius: 100%;
+  animation: openEye 8s ease-in-out 3s forwards infinite;
+}
+#playerPupilLeft, #playerPupilRight {
+  position: absolute;
+  display: inline-block;
+  background: black;
+  z-index: 1;
+  border-radius: 100%;
+  width: 7.5px;
+  height: 7.5px;
+  top: 37.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+#playerPupilLeft {
+  margin-left: -25%;
+  z-index: 3;
+}
+#playerPupilRight {
+  margin-left: 25%;
+  z-index: 3;
+}
+#playerHeal {
+  position: relative;
+  display: none;
+  background: white;
+  border-radius: 10px;
+  width: 80px;
+  height: 10px;
+  top: -75%;
+  right: 10%;
+  overflow: hidden;
+  border: 1px solid black;
+}
+#playerHealProgressText {
+  position: relative;
+  display: block;
+  background: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0.5px 0;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 0.69rem;
+  Z-index: 1;
+  transform: translateY(-200%);
+}
+#playerHealProgress {
+  position: relative;
+  display: block;
+  background: green;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#textPause {
+  display: none;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 2vh;
+  width: 20vw;
+  height: 9vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 0 0 0;
+  z-index: 13;
+  backdrop-filter: blur(10px);
+}
+#yesPause, #noPause {
+  margin: 6.5px 0 0 10px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+/* !Animations */
+
+@keyframes openInterface {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    width: 70vw;
+    height: 70vh;
+    opacity: 1;
+  }
+}
+@keyframes closeInterface {
+  0% {
+    width: 70vw;
+    height: 70vh;
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes openTextPause {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 20vw;
+    height: 9vh;
+  }
+}
+@keyframes closeTextPause {
+  0% {
+    width: 20vw;
+    height: 9vh;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+@keyframes openEye {
+  0% {
+    height: 0%;
+  }
+  1% {
+    height: 100%;
+  }
+  2% {
+    height: 0%;
+  }
+  6% {
+    height: 0%;
+  }
+  100% {
+    height: 0%;
+  }
+}

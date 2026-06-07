@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="progress-container">
+    <div id="lvl">Level : 1</div>
+    <div id="progress-bar"></div>
+  </div>
+  <div id="exp">Vous avez 100/1000 exp</div>
+  <div id="interface">
+    <button id="play">Play</button>
+    <p id="pause">⏸️</p>
+    <div id="textPause"><span id="textParagraphe"></span>
+      <br><input type="button" id="yesPause" value="Oui">
+      <input type="button" id="noPause" value="Non">
+    </div>
+    <div id="menu">
+      <table>
+        <li><button id="shop">shop</button><br>
+        <button id="stat">stat</button>
+        <button id="avatar">avatar</button></li>
+      </table>
+    </div>
+    <div class="monster-model">
+      <div class="monsterEyeLeft-model"></div>
+        <div class="monsterPupilLeft-model"></div>
+      <div class="monsterEyeRight-model"></div>
+        <div class="monsterPupilRight-model"></div>
+    </div>
+    <div id="playerBody">
+      <div id="playerEyeLeft"></div>
+        <div id="playerPupilLeft"></div>
+      <div id="playerEyeRight"></div>
+        <div id="playerPupilRight"></div>
+      <div id="playerHeal">
+        <div id="playerHealProgress"></div>
+        <div id="playerHealProgress"></div>
+        <div id="playerHealProgressText"></div>
+      </div>
+    </div>
+  </div>
+  <div id="interfaceShop">
+    <button class="shopClose">X</button>
+    <div id="item">
+      <div id="item1"></div>
+      <div id="item2"></div>
+      <div id="item3"></div>
+      <div id="item4"></div>
+      <div id="item5"></div>
+      <div id="item6"></div>
+    </div>
+    <input type="range" id="sliderShop" min="0" max="100" value="0">
+    <!-- *<div id="sliderShop"></div> -->
+  </div>
+  <div id="interfaceStat">
+    <button class="statClose">X</button>
+    <input type="range" id="sliderHp" min="100" max="10000" value="100">
+    <input type="range" id="sliderAttack" min="10" max="10000" value="10">
+    <input type="range" id="sliderSpeed" min="5" max="100" value="5">
+    <div id="menuStat">
+      <p id="textPoint">points : <span id="point"></span></p></p>
+      <p id="textHp">hp : <button id="hp">lvl : 100</button></spa></p>
+      <p id="textAtk">attack : <button id="attack">lvl : 10</button></span></p>
+      <p id="textSpeed">speed : <button id="speed">lvl : 5</button></span></p>
+    </div>
+  </div>
+  <div id="interfaceAvatar">
+    <button class="avatarClose">X</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
