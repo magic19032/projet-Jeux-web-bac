@@ -3,28 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Jeux web</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="progress-container">
-    <div id="lvl">Level : 1</div>
-    <div id="progress-bar"></div>
+  <div id="rotate-warning">
+    <svg id="svg" viewBox="0 0 300 275" width="60vw" height="50vh" style="border: 1px solid rgb(0, 0, 0);" >
+      <path id="path" d="M75 0 H225 Q250 0 250 25 V250 Q250 275 225 275 H75 Q50 275 50 250 V25 Q50 0 75 0" fill="NONE"stroke="RED" stroke-width="3"></path>
+    </svg>
+    <p id="textRotateTelephone">Veuillez faire tourner votre téléphone</p>
   </div>
-  <div id="exp">Vous avez 100/1000 exp</div>
+  <div id="exp" data-min="100" data-max="1000" data-exp="0">Vous avez 100/1000 exp</div>
   <div id="interface">
-    <button id="play">Play</button>
+    <div id="progress-container">
+      <div id="lvl">Level : 1</div>
+      <div id="progress-bar"></div>
+    </div>
+    <button id="play"><span>Play</span></button>
     <p id="pause">⏸️</p>
     <div id="textPause"><span id="textParagraphe"></span>
       <br><input type="button" id="yesPause" value="Oui">
       <input type="button" id="noPause" value="Non">
     </div>
+    <div id="bodyClone"></div>
+    <div id="interfaceGameOver">
+      <div id="backgroundGameOver"></div>
+      <div id="gameOver"><strong>GAME OVER</strong></div>
+      <div id="btnQuit">
+        <button id="quit">QUIT</button>
+        <button id="restart">RESTART</button>
+      </div>
+    </div>
     <div id="menu">
-      <table>
-        <li><button id="shop">shop</button><br>
-        <button id="stat">stat</button>
-        <button id="avatar">avatar</button></li>
-      </table>
+        <button id="shop"><span>shop</span></button>
+        <button id="stat"><span>stat</span></button>
+        <button id="avatar"><span>avatar</span></button>
     </div>
     <div class="monster-model">
       <div class="monsterEyeLeft-model"></div>
@@ -32,30 +45,22 @@
       <div class="monsterEyeRight-model"></div>
         <div class="monsterPupilRight-model"></div>
     </div>
-    <div id="playerBody">
+    <div id="playerBody" data-health="100" data-attack="10" data-speed="5">
       <div id="playerEyeLeft"></div>
         <div id="playerPupilLeft"></div>
       <div id="playerEyeRight"></div>
         <div id="playerPupilRight"></div>
       <div id="playerHeal">
-        <div id="playerHealProgress"></div>
-        <div id="playerHealProgress"></div>
-        <div id="playerHealProgressText"></div>
+        <div id="playerHealProgressBar"></div>
+        <div id="playerHealText"></div>
       </div>
     </div>
   </div>
   <div id="interfaceShop">
     <button class="shopClose">X</button>
-    <div id="item">
-      <div id="item1"></div>
-      <div id="item2"></div>
-      <div id="item3"></div>
-      <div id="item4"></div>
-      <div id="item5"></div>
-      <div id="item6"></div>
+    <div id="sliderShop">
+      <div id="sliderPush"></div>
     </div>
-    <input type="range" id="sliderShop" min="0" max="100" value="0">
-    <!-- *<div id="sliderShop"></div> -->
   </div>
   <div id="interfaceStat">
     <button class="statClose">X</button>
